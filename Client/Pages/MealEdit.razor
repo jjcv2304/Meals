@@ -1,0 +1,49 @@
+﻿@page "/mealEdit"
+@inject IJSRuntime JSRuntime;
+
+
+<div class="card m-3">
+  <h4 class="card-header">Meal Edit</h4>
+  <div class="card-body">
+    <EditForm EditContext="@editContext" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
+      <DataAnnotationsValidator />
+      <div class="form-group">
+        <label for="mealName">Name</label>
+        <InputText @bind-Value="mealEditVM.Name" class="form-control" id="mealName" placeholder="Enter meal name" />
+        <ValidationMessage For="@(() => mealEditVM.Name)" />
+      </div>
+      <div class="form-group">
+        <label for="mealDescription">Description</label>
+        <InputText  @bind-Value="mealEditVM.Description" class="form-control" id="mealDescription" placeholder="Enter meal Description" />
+        <ValidationMessage For="@(() => mealEditVM.Description)" />
+      </div>
+      <div class="form-group">
+        <label for="mealReference">Link</label>
+        <InputText  @bind-Value="mealEditVM.Reference" class="form-control" id="mealReference" placeholder="Enter meal link" />
+        <ValidationMessage For="@(() => mealEditVM.Reference)" />
+      </div>
+      <div class="form-group">
+        <label for="mealVote">Meal Vote</label>
+        <input type="range" class="custom-range" id="mealVote" >
+        <ValidationMessage For="@(() => mealEditVM.Vote)" />
+      </div>
+@*      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>*@
+      <div class="form-group">
+        <label for="mealTags">Description</label>
+        <InputText  @bind-Value="mealEditVM.Tags" class="form-control" id="mealTags" placeholder="Enter meal Tags" />
+        <ValidationMessage For="@(() => mealEditVM.Tags)" />
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary mr-1">Register</button>
+        <button type="reset" class="btn btn-secondary">Cancel</button>
+      </div>
+    </EditForm>
+  </div>
+</div>
+
+
+
+
