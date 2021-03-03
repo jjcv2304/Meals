@@ -21,5 +21,11 @@ namespace Meals.Client.Components
     [Parameter]
     public int NumberOfStarts { get; set; }
 
+    private int NumberOfStartsSelected { get; set; }
+
+    private void StarClicked(int index)
+    {
+      NumberOfStartsSelected = index+1;
+    }
   }
 }
