@@ -3,9 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Meals.Client.Pages
 {
-  public partial class MealEdit
-  {
-    private class MealEditVM
+  internal class MealEditVM
     {
 
       [Required]
@@ -26,4 +24,3 @@ namespace Meals.Client.Pages
       public string Tags { get; set; }
     }
   }
-}

@@ -1,5 +1,7 @@
 ﻿@page "/mealEdit"
+@using Meals.Client.Components;
 @inject IJSRuntime JSRuntime;
+
 
 
 <div class="card m-3">
@@ -24,7 +26,8 @@
       </div>
       <div class="form-group">
         <label for="mealVote">Meal Vote</label>
-        <input type="range" class="custom-range" id="mealVote" >
+        @*<input type="range" class="custom-range" id="mealVote" >*@
+        <VoteWithStars NumberOfStarts="5"></VoteWithStars>
         <ValidationMessage For="@(() => mealEditVM.Vote)" />
       </div>
 @*      <div class="custom-file">
