@@ -1,34 +1,32 @@
 ﻿@page "/mealEdit"
+@inject IJSRuntime JsRuntime;
 @using Meals.Client.Components;
-@inject IJSRuntime JSRuntime;
-
-
 
 <div class="card m-3">
   <h4 class="card-header">Meal Edit</h4>
   <div class="card-body">
-    <EditForm EditContext="@editContext" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
+    <EditForm EditContext="@_editContext" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
       <DataAnnotationsValidator />
       <div class="form-group">
         <label for="mealName">Name</label>
-        <InputText @bind-Value="mealEditVM.Name" class="form-control" id="mealName" placeholder="Enter meal name" />
-        <ValidationMessage For="@(() => mealEditVM.Name)" />
+        <InputText @bind-Value="_mealEditVm.Name" class="form-control" id="mealName" placeholder="Enter meal name" />
+        <ValidationMessage For="@(() => _mealEditVm.Name)" />
       </div>
       <div class="form-group">
         <label for="mealDescription">Description</label>
-        <InputText  @bind-Value="mealEditVM.Description" class="form-control" id="mealDescription" placeholder="Enter meal Description" />
-        <ValidationMessage For="@(() => mealEditVM.Description)" />
+        <InputText  @bind-Value="_mealEditVm.Description" class="form-control" id="mealDescription" placeholder="Enter meal Description" />
+        <ValidationMessage For="@(() => _mealEditVm.Description)" />
       </div>
       <div class="form-group">
         <label for="mealReference">Link</label>
-        <InputText  @bind-Value="mealEditVM.Reference" class="form-control" id="mealReference" placeholder="Enter meal link" />
-        <ValidationMessage For="@(() => mealEditVM.Reference)" />
+        <InputText  @bind-Value="_mealEditVm.Reference" class="form-control" id="mealReference" placeholder="Enter meal link" />
+        <ValidationMessage For="@(() => _mealEditVm.Reference)" />
       </div>
       <div class="form-group">
         <label for="mealVote">Meal Vote</label>
-        @*<input type="range" class="custom-range" id="mealVote" >*@
-        <VoteWithStars NumberOfStarts="5"></VoteWithStars>
-        <ValidationMessage For="@(() => mealEditVM.Vote)" />
+        <VoteWithStars NumberOfStarts="5" @bind-NumberOfStartsSelected=_mealEditVm.Vote></VoteWithStars>
+        <InputNumber @bind-Value="_mealEditVm.Vote"  id="mealVote" />
+        <ValidationMessage For="@(() => _mealEditVm.Vote)" />
       </div>
 @*      <div class="custom-file">
         <input type="file" class="custom-file-input" id="customFile">
@@ -36,8 +34,8 @@
       </div>*@
       <div class="form-group">
         <label for="mealTags">Description</label>
-        <InputText  @bind-Value="mealEditVM.Tags" class="form-control" id="mealTags" placeholder="Enter meal Tags" />
-        <ValidationMessage For="@(() => mealEditVM.Tags)" />
+        <InputText  @bind-Value="_mealEditVm.Tags" class="form-control" id="mealTags" placeholder="Enter meal Tags" />
+        <ValidationMessage For="@(() => _mealEditVm.Tags)" />
       </div>
       <div class="text-center">
         <button type="submit" class="btn btn-primary mr-1">Register</button>

@@ -17,8 +17,8 @@ namespace Meals.Client.Pages
       public string Reference { get; set; }
 
       [Required]
-      [Range(0, 5, ErrorMessage = "Vote should be between 0 and 5")]
-      public string Vote { get; set; }
+      [Range(1, 5, ErrorMessage = "Vote should be between 1 and 5")]
+      public int Vote { get; set; }
 
       [Display(Name = "Meal Tags")]
       public string Tags { get; set; }
