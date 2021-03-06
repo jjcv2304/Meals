@@ -1,6 +1,7 @@
 ﻿@page "/mealEdit"
 @inject IJSRuntime JsRuntime;
 @using Meals.Client.Components;
+@using System.IO
 
 <div class="card m-3">
   <h4 class="card-header">Meal Edit</h4>
@@ -14,28 +15,31 @@
       </div>
       <div class="form-group">
         <label for="mealDescription">Description</label>
-        <InputText  @bind-Value="_mealEditVm.Description" class="form-control" id="mealDescription" placeholder="Enter meal Description" />
+        <InputText @bind-Value="_mealEditVm.Description" class="form-control" id="mealDescription" placeholder="Enter meal Description" />
         <ValidationMessage For="@(() => _mealEditVm.Description)" />
       </div>
       <div class="form-group">
         <label for="mealReference">Link</label>
-        <InputText  @bind-Value="_mealEditVm.Reference" class="form-control" id="mealReference" placeholder="Enter meal link" />
+        <InputText @bind-Value="_mealEditVm.Reference" class="form-control" id="mealReference" placeholder="Enter meal link" />
         <ValidationMessage For="@(() => _mealEditVm.Reference)" />
       </div>
       <div class="form-group">
         <label for="mealVote">Meal Vote</label>
         <VoteWithStars NumberOfStarts="5" @bind-NumberOfStartsSelected=_mealEditVm.Vote></VoteWithStars>
-        <InputNumber @bind-Value="_mealEditVm.Vote"  id="mealVote" />
+        <InputNumber @bind-Value="_mealEditVm.Vote" id="mealVote" />
         <ValidationMessage For="@(() => _mealEditVm.Vote)" />
       </div>
-@*      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="customFile">
+
+      <div class="custom-file">
         <label class="custom-file-label" for="customFile">Choose file</label>
-      </div>*@
+        <InputFile OnChange="@OnFileSelection" id="customFile"/>
+          <img src="@imgUrl">
+      </div>
+
       <div class="form-group">
         <label for="mealTags">Description</label>
-        <InputText  @bind-Value="_mealEditVm.Tags" class="form-control" id="mealTags" placeholder="Enter meal Tags" />
-        <ValidationMessage For="@(() => _mealEditVm.Tags)" />
+        <InputText @bind-Value="_mealEditVm.Tags" class="form-control" id="mealTags" placeholder="Enter meal Tags" />
+        <ValidationMessage For="@(() => _mealEditVm.Tags)"/>
       </div>
       <div class="text-center">
         <button type="submit" class="btn btn-primary mr-1">Register</button>
